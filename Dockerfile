@@ -10,8 +10,10 @@ RUN cd /usr/share && mkdir hippo && cd hippo
 RUN git clone -b develop https://github.com/cheddesi/camel-events-support.git
 #run mvn clean
 RUN cd camel-events-support/demo && mvn clean verify
+#add ca certs
+ADD certs /usr/share/
 #import elasticsearch ca cert
-RUN keytool -importcert -noprompt -trustcacerts -file certs/ca/ca.crt -keystore /usr/lib/jvm/java-1.8-openjdk/jre/lib/security/cacerts -storepass changeit
+RUN keytool -importcert -noprompt -trustcacerts -file /usr/share/certs/ca/ca.crt -keystore /usr/lib/jvm/java-1.8-openjdk/jre/lib/security/cacerts -storepass changeit
 #expose port 8080 of tomcat
 EXPOSE 8080
 #Entry point for container
