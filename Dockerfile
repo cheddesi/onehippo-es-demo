@@ -16,5 +16,7 @@ RUN keytool -importcert -noprompt -trustcacerts -file /usr/share/ca/ca.crt -keys
 RUN cd camel-events-support/demo && mvn clean verify
 #expose port 8080 of tomcat
 EXPOSE 8080
+#Right directory
+RUN cd camel-events-support/demo
 #Entry point for container
 CMD mvn -Pcargo.run
