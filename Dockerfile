@@ -1,5 +1,6 @@
 FROM maven:3-jdk-8-alpine
 MAINTAINER siva chedde (cheddesi@gmail.com)
+ENV REFRESHED_AT 2018-04-04
 
 #install git and openssh
 RUN apk update && apk upgrade && \
