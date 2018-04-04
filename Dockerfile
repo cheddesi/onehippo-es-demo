@@ -17,6 +17,6 @@ RUN cd camel-events-support/demo && mvn clean verify
 #expose port 8080 of tomcat
 EXPOSE 8080
 #Right directory
-RUN cd camel-events-support/demo
+RUN cd /usr/share/hippo/camel-events-support/demo
 #Entry point for container
 CMD mvn -Pcargo.run
